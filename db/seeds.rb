@@ -5,9 +5,8 @@ require 'faker'
 	User.create(
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
-		user_name: Faker::Internet.user_name,
-		password: password,
-		password_confirmation: password,
+		username: Faker::Internet.user_name,
+		password_digest: password,
 		email: Faker::Internet.email,
 		credit_card_number: Faker::Business.credit_card_number,
 	)
