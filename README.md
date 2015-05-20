@@ -1,1 +1,1 @@
-# mock_airbnb
+# mock-airbnb
