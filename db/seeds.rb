@@ -1,6 +1,6 @@
 require 'faker'
 
-10.times do
+10000.times do
 	password = Faker::Internet.password(8)
 	User.create(
 		first_name: Faker::Name.first_name,
@@ -12,7 +12,7 @@ require 'faker'
 	)
 end
 
-20.times do
+20000.times do
 	Room.create(
 		user_id: rand(9) + 1,
 		price:rand(90) + 10,
