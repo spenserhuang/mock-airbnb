@@ -29,10 +29,6 @@ get '/' do
 end
 
 get '/users/dashboard' do
-  # p "*" * 90
-  # user_id = session[:user_id]
-  # p user_id
-  # @user = User.find(user_id)
   if current_user
     @user = current_user
   else
@@ -42,26 +38,49 @@ get '/users/dashboard' do
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id])
+  @user = current_user
   erb :"user/show"
 end
 
-put '/users/:id' do
-  @user = User.find(params[:id])
-  @user.update_attribute(
-     first_name: params[:first_name],
-     last_name: params[:last_name],
-     username: params[:username],
-     password_digest: params[:password_digest],
-     email: params[:email],
-     credit_card_number: params[:credit_card_number]
-    )
+get '/users/:id/edit' do
+  p "3" * 100
+  @user = current_user
+  erb :"user/edit"
 end
 
-
+put '/users/:id' do
+  p "3" * 100
+  @user = current_user
+  @user.update(
+    first_name:         params[:first_name],
+    last_name:          params[:last_name],
+    email:              params[:email],
+    credit_card_number: params[:credit_card_number]
+  )
+  if @user.save
+    redirect '/users/dashboard'
+  else
+    status 404
+  end
+end
 
 get '/rooms/new' do
   erb :"room/new"
+end
+
+post '/rooms' do
+  Room.create(
+    name:         params[:name],
+    description:  params[:description],
+    country:      params[:country],
+    state:        params[:state],
+    city:         params[:city],
+    street:       params[:street],
+    price:        params[:price],
+    user_id:      current_user.id,
+    availability: true
+  )
+  redirect to '/'
 end
 
 get '/rooms/:id' do
@@ -72,21 +91,4 @@ end
 get '/countries/:name/rooms' do
   @rooms = Room.where(country: params[:name]) #array
   erb :"room/all"
-end
-
-
-
-post '/rooms' do
-  Room.create(
-     name: params[:name],
-     description: params[:description],
-     country: params[:country],
-     state: params[:state],
-     city: params[:city],
-     street: params[:street],
-     price: params[:price],
-     availability: true
-  )
-  p "1" * 100
-  redirect to '/'
 end
