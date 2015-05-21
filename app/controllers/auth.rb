@@ -1,7 +1,3 @@
-get '/' do
-  erb :index
-end
-
 get '/signin' do
   erb :'authorization/signin'
 end
