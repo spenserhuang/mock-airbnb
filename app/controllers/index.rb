@@ -24,36 +24,69 @@
   # get
   # post
 
-
 get '/' do
   erb :index
 end
 
-get '/users/:id' do
+get '/users/dashboard' do
+  # p "*" * 90
+  # user_id = session[:user_id]
+  # p user_id
+  # @user = User.find(user_id)
+  if current_user
+    @user = current_user
+  else
+    redirect '/'
+  end
+   erb :"user/dashboard"
+end
 
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :"user/show"
 end
 
 put '/users/:id' do
-
+  @user = User.find(params[:id])
+  @user.update_attribute(
+     first_name: params[:first_name],
+     last_name: params[:last_name],
+     username: params[:username],
+     password_digest: params[:password_digest],
+     email: params[:email],
+     credit_card_number: params[:credit_card_number]
+    )
 end
 
-get '/users/dashboard' do
 
+
+get '/rooms/new' do
+  erb :"room/new"
 end
 
 get '/rooms/:id' do
-
+  @room = Room.find(params[:id])
+   erb :"room/show"
 end
 
-get '/cities/:name/rooms' do
-
+get '/countries/:name/rooms' do
+  @rooms = Room.where(country: params[:name]) #array
+  erb :"room/all"
 end
 
-get 'rooms/new' do
 
-end
 
 post '/rooms' do
-
+  Room.create(
+     name: params[:name],
+     description: params[:description],
+     country: params[:country],
+     state: params[:state],
+     city: params[:city],
+     street: params[:street],
+     price: params[:price],
+     availability: true
+  )
+  p "1" * 100
+  redirect to '/'
 end
-
