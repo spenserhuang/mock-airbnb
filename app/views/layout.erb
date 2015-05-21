@@ -18,6 +18,15 @@
   <title></title>
 </head>
 <body>
+<body>
+  <%if current_user%>
+    <a href="/signout"><button type="button">logoff</button></a>
+  <%else%>
+    <a href="/signup/new"><button type="button">signup</button></a>
+    <a href="/signin/new"><button type="button">signin</button></a>
+  <%end%>
+
   <%= yield %>
+</body>
 </body>
 </html>
