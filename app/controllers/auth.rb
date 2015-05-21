@@ -9,7 +9,7 @@ post '/signin' do
     redirect '/'
   else
     "Invalid username or password. Please try again!"
-    redirect '/signin'
+    redirect '/signin/new'
   end
 end
 
