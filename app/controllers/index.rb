@@ -24,34 +24,42 @@
   # get
   # post
 
+# homepage
 get '/' do
   erb :index
 end
 
+# open user page
 get '/users/:id' do
 
 end
 
-put '/users/:id' do
+# update user page
+put '/users' do
 
 end
 
+# open user page
 get '/users/dashboard' do
 
 end
 
+# room page
 get '/rooms/:id' do
 
 end
 
+# rooms list under city
 get '/cities/:name/rooms' do
 
 end
 
+# new room form
 get 'rooms/new' do
 
 end
 
+# post new room
 post '/rooms' do
 
 end
