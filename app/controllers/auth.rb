@@ -1,4 +1,4 @@
-get '/signin' do
+get '/signin/new' do
   erb :'authorization/signin'
 end
 
@@ -13,7 +13,7 @@ post '/signin' do
   end
 end
 
-get '/signup' do
+get '/signup/new' do
   erb :'authorization/signup'
 end
 

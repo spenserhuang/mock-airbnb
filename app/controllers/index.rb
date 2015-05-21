@@ -23,3 +23,35 @@
   # form for creating a new room
   # get
   # post
+
+get '/' do
+  erb :index
+end
+
+get '/users/:id' do
+
+end
+
+put '/users/:id' do
+
+end
+
+get '/users/dashboard' do
+
+end
+
+get '/rooms/:id' do
+
+end
+
+get '/cities/:name/rooms' do
+
+end
+
+get 'rooms/new' do
+
+end
+
+post '/rooms' do
+
+end
