@@ -23,12 +23,7 @@ get '/users/dashboard/edit' do
 end
 
 put '/users/dashboard' do
-  puts "HI1"
-  p "HI2"
   @user = current_user
-  puts "3" * 5
-  puts @user
-  puts "********"
   @user.update_attributes(
     first_name:         params[:user][:first_name],
     last_name:          params[:user][:last_name],
