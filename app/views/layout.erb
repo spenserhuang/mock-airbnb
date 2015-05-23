@@ -20,14 +20,15 @@
 </head>
 <body>
   <header>
-    <img src="img/logo.png">
+    <img src="../img/airbnb.png">
     <nav class="floatr">
     <%if current_user%>
-    <a href="/users/dashboard">Dash Board</a>
+    <a href="/users/dashboard">Dashboard</a>
      <a href="/signout"><button type="button">Logoff</button></a>
+     <a href="/rooms/new"><button class="green"type="button">List your room</button></a>
     <%else%>
-     <a href="/signup/new"><button type="button">signup</button></a>
-     <a href="/signin/new"><button type="button">signin</button></a>
+     <a href="/signup/new"><button type="button">SignUp</button></a>
+     <a href="/signin/new"><button type="button">SignIn</button></a>
   </nav>
   <%end%>
   </header>

@@ -1,12 +1,13 @@
 <div class="left floatl">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3149.5038086571503!2d-122.25854000000001!3d37.871899!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7718c522d7c1%3A0xda8034ea3b6b3289!2sUniversity+of+California%2C+Berkeley!5e0!3m2!1sen!2sus!4v1432271488145" width="300" height="200" frameborder="0" style="border:0"></iframe>
+    <div class="profile">
+      <img src="../img/original.jpg">
+      <h3><%=@user.first_name %> <%=@user.last_name %></h3>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3149.5038086571503!2d-122.25854000000001!3d37.871899!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7718c522d7c1%3A0xda8034ea3b6b3289!2sUniversity+of+California%2C+Berkeley!5e0!3m2!1sen!2sus!4v1432271488145" width="300" height="200" frameborder="0" style="border:0"></iframe>
 </div>
 <div class="right floatr">
+  <h1><%= @room.name %></h1>
   <table>
-  <tr>
-    <th>Name</th>
-    <td><%= @room.name %></td>
-  </tr>
   <tr>
     <th>Description</th>
     <td><%= @room.description %></td>
