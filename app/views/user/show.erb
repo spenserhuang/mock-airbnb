@@ -3,5 +3,10 @@
   <%= @user.first_name %><br>
   <%= @user.email %>
 </div>
+<div class="right">
+   <% @rooms.each do |room| %>
+     <p><%= room.name %></p>
+  <% end %>
+</div>
 </main>
 

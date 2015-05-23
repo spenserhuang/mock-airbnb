@@ -31,6 +31,7 @@ end
 get '/users/dashboard' do
   if current_user
     @user = current_user
+    @rooms = Room.where(user_id: session[:user_id])
   else
     redirect '/'
   end
@@ -39,17 +40,16 @@ end
 
 get '/users/:id' do
   @user = current_user
+  @rooms = Room.where(user_id: params[:id])
   erb :"user/show"
 end
 
 get '/users/:id/edit' do
-  p "3" * 100
   @user = current_user
   erb :"user/edit"
 end
 
 put '/users/:id' do
-  p "3" * 100
   @user = current_user
   @user.update(
     first_name:         params[:first_name],
@@ -83,7 +83,7 @@ post '/rooms' do
   redirect to '/'
 end
 
-get '/rooms/:id' do
+get 'rooms/:id/' do
   @room = Room.find(params[:id])
   @user = User.find(@room.user_id)
    erb :"room/show"
