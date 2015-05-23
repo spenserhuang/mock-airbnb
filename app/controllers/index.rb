@@ -1,29 +1,3 @@
-# homepage
-  # cities list
-  # post new room
-  # get
-  # post
-# open user page
-  # user's name
-  # list of rooms under that user
-  # get
-# self user page
-  # for updating user info
-  # get
-  # put
-# room page
-  # for displaying room info
-  # *** reserving the room
-  # get
-# room list
-  # list of all the rooms in that city
-  # get
-  # post
-# new room form
-  # form for creating a new room
-  # get
-  # post
-
 get '/' do
   erb :index
 end
@@ -39,29 +13,32 @@ end
 
 get '/users/:id' do
   @user = current_user
+  p @user
   erb :"user/show"
 end
 
-get '/users/:id/edit' do
-  p "3" * 100
+get '/users/dashboard/edit' do
   @user = current_user
   erb :"user/edit"
 end
 
-put '/users/:id' do
-  p "3" * 100
+put '/users/dashboard' do
+  puts "HI1"
+  p "HI2"
   @user = current_user
-  @user.update(
-    first_name:         params[:first_name],
-    last_name:          params[:last_name],
-    email:              params[:email],
-    credit_card_number: params[:credit_card_number]
+  puts "3" * 5
+  puts @user
+  puts "********"
+  @user.update_attributes(
+    first_name:         params[:user][:first_name],
+    last_name:          params[:user][:last_name],
+    email:              params[:user][:email],
+    credit_card_number: params[:user][:credit_card_number],
+    username:           params[:user][:username],
+    password_digest:    params[:user][:password_digest]
   )
-  if @user.save
-    redirect '/users/dashboard'
-  else
-    status 404
-  end
+  puts "updated"
+  redirect '/users/dashboard'
 end
 
 get '/rooms/new' do

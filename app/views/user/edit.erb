@@ -1,7 +1,16 @@
-<form action = "/users/:id" method = "PUT">
-  <div>Enter First Name: <br><input type = "text" name = "user[first_name]"></div><br>
-  <div>Enter Last Name Here: <br><input type = "text" name = "user[last_name]"></div><br>
-  <div>Enter Email Here: <br><input type = "text" name = "user[email]"></div><br>
-  <div>Enter Credit Card Number Here: <br><input type = "text" name = "user[credit_card_number]"></div><br>
+<form action="/users/dashboard" method="post">
+  <div>Enter First Name: <br>
+    <input type = "text" name = "user[first_name]" value="<%= @user.first_name %>"></div><br>
+  <div>Enter Last Name Here: <br>
+    <input type = "text" name = "user[last_name]" value="<%= @user.last_name %>"></div><br>
+  <div>Enter Email Here: <br>
+    <input type = "text" name = "user[email]"  value="<%= @user.email %>"></div><br>
+  <div>Enter Credit Card Number Here: <br>
+    <input type = "text" name = "user[credit_card_number]"  value="<%= @user.credit_card_number %>"></div><br>
+  <div>Enter Username Here: <br>
+    <input type = "text" name = "user[username]"  value="<%= @user.username %>"></div><br>
+  <div>Enter Password Here: <br>
+    <input type = "text" name = "user[password_digest]"  value="<%= @user.password_digest %>"></div><br>
+  <div><input type="hidden" name="_method" value="put"></div>
   <input type = "submit">
 </form>
