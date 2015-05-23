@@ -6,6 +6,8 @@
     Username:<%= @user.first_name %>
 </div>
 <div class="right">
-
+    <% @rooms.each do |room| %>
+    <%= room.name %>
+    <% end %>
 </div>
 </main>

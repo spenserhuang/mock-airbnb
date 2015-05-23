@@ -30,6 +30,22 @@ header a {
 }
 
 
+footer {
+  background-color: #565A5C;
+  height:200px;
+}
+
+.link {
+  text-decoration: none;
+  color:white;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.link:hover{
+  color:#CACCCD;
+}
+
 
 input[type="text"], input[type="password"], input[type="number"] {
   width: 300px;
@@ -46,10 +62,9 @@ button, input[type="submit"]  {
   height:30px;
   margin:10px;
   color:white;
-  background-color:#E57373;
   outline:none;
   border: none;
-  box-shadow: 0 2px 0px #BD4343;
+
   border-radius: 2px;
   letter-spacing: 1px;
   font-size:14px;
@@ -76,8 +91,8 @@ img {
 }
 
 header img {
-  width: 180px;
-  height: 70px;
+  width: 160px;
+  height: 50px;
 }
 
 #title {
@@ -88,6 +103,7 @@ header img {
 }
 
 #title h1 {
+  margin-top: 50px;
   font-size: 54px;
   color:white;
 }
@@ -119,6 +135,7 @@ header img {
   padding: 30px;
   width:50%;
   font-size: 14px;
+
 }
 
 table, th, td {
@@ -151,7 +168,16 @@ tr {
 }
 
 .green:hover {
-  background-color:#007A87;
+  background-color:#088591;
+}
+
+.red {
+  background-color:#E57373;
+  box-shadow: 0 2px 0px #BD4343;
+}
+
+.red:hover {
+  background-color:#fc8082;
 }
 
 .title_box {
@@ -163,6 +189,7 @@ tr {
 }
 
 .title_head {
+  margin-top: 100px;
   line-height: 50px;
   display: inline-block;
 }
@@ -179,7 +206,9 @@ h1,h3{
 }
 
 
-
+i {
+  margin-right: 5px;
+}
 
 
 
