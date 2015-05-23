@@ -62,6 +62,7 @@ end
 
 get '/rooms/:id' do
   @room = Room.find(params[:id])
+  @user = User.find(@room.user_id)
    erb :"room/show"
 end
 

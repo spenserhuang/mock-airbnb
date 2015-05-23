@@ -11,6 +11,7 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+ <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -18,15 +19,24 @@
   <title></title>
 </head>
 <body>
-<body>
-  <%if current_user%>
-    <a href="/signout"><button type="button">logoff</button></a>
-  <%else%>
-    <a href="/signup/new"><button type="button">signup</button></a>
-    <a href="/signin/new"><button type="button">signin</button></a>
+  <header>
+    <img src="../img/airbnb.png">
+    <nav class="floatr">
+    <%if current_user%>
+    <a href="/users/dashboard">Dashboard</a>
+     <a href="/signout"><button type="button">Logoff</button></a>
+     <a href="/rooms/new"><button class="green"type="button">List your room</button></a>
+    <%else%>
+     <a href="/signup/new"><button type="button">SignUp</button></a>
+     <a href="/signin/new"><button type="button">SignIn</button></a>
+  </nav>
   <%end%>
+  </header>
 
-  <%= yield %>
-</body>
+    <%= yield %>
+
+  <footer>
+
+  </footer>
 </body>
 </html>
